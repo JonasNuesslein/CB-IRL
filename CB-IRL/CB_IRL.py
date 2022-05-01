@@ -52,7 +52,8 @@ if __name__ == "__main__":
     model = PPO("MlpPolicy",
                 newEnv,
                 policy_kwargs=dict(net_arch=[256, 256]),
-                learning_rate=0.0002,
+                learning_rate=0.0001,
+                ent_coef=0.001,
                 verbose=0)
     model.learn(total_timesteps=1000000, callback=callback)
 
